@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="core" />
+        <module name="admin" />
+        <module name="backup" />
+        <module name="monitor" />
+        <module name="common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin" target="1.8" />
+      <module name="backup" target="1.8" />
+      <module name="common" target="1.8" />
+      <module name="core" target="1.5" />
+      <module name="monitor" target="1.8" />
+      <module name="pom" target="1.5" />
+      <module name="pom (1) (com.jun)" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="backup" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="monitor" options="-parameters" />
+    </option>
+  </component>
+</project>
