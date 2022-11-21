@@ -1,6 +1,7 @@
 package com.jun.my_mango.admin.dao;
 
 import com.jun.my_mango.admin.model.SysRole;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,5 +18,11 @@ public interface SysRoleMapper {
 
     int updateByPrimaryKey(SysRole row);
 
+    List<SysRole> findPage();
+
     List<SysRole> findAll();
+
+    List<SysRole> findPageByName(@Param(value="name") String name);
+
+    List<SysRole> findByName(@Param(value="name") String name);
 }

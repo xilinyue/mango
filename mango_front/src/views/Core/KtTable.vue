@@ -93,7 +93,7 @@
             findPage: function () {
                 this.loading = true
                 let callback = res => {
-
+                    console.log(res)
                     this.loading = false
                 };
                 this.$emit('findPage', {pageRequest:this.pageRequest, callback:callback})

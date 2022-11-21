@@ -11,3 +11,10 @@ export const findNavTree = (params) => {
         params
     })
 }
+// 查找导航菜单树
+export const findMenuTree = () => {
+    return axios({
+        url: '/menu/findMenuTree',
+        method: 'get'
+    })
+}

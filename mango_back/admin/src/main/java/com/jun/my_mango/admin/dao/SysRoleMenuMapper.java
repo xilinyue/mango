@@ -1,6 +1,7 @@
 package com.jun.my_mango.admin.dao;
 
 import com.jun.my_mango.admin.model.SysRoleMenu;
+import org.apache.ibatis.annotations.Param;
 
 public interface SysRoleMenuMapper {
     int deleteByPrimaryKey(Long id);
@@ -14,4 +15,6 @@ public interface SysRoleMenuMapper {
     int updateByPrimaryKeySelective(SysRoleMenu row);
 
     int updateByPrimaryKey(SysRoleMenu row);
+
+    int deleteByRoleId(@Param(value = "roleId") Long roleId);
 }
