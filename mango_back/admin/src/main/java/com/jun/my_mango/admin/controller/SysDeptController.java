@@ -17,7 +17,7 @@ import java.util.List;
  * @date: 2022年11月14日16:59
  */
 @RestController
-@ApiOperation(value = "G.机构管理模块")
+@Api(tags = "G.机构管理模块")
 @RequestMapping(value = "/dept")
 public class SysDeptController {
     @Autowired

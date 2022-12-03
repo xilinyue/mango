@@ -48,22 +48,31 @@ public class SysMenuServiceImpl implements SysMenuService {
 
     @Override
     public int save(SysMenu record) {
-        return 0;
+        if (record.getId() == null || record.getId() == 0){
+            return  sysMenuMapper.insertSelective(record);
+        }
+        if (record.getParentId() == null){
+            record.setParentId(0L);
+        }
+        return sysMenuMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
     public int delete(SysMenu record) {
-        return 0;
+        return sysMenuMapper.deleteByPrimaryKey(record.getId());
     }
 
     @Override
     public int delete(List<SysMenu> records) {
-        return 0;
+        for(SysMenu record:records) {
+            delete(record);
+        }
+        return 1;
     }
 
     @Override
     public SysMenu findById(Long id) {
-        return null;
+        return sysMenuMapper.selectByPrimaryKey(id);
     }
 
     @Override

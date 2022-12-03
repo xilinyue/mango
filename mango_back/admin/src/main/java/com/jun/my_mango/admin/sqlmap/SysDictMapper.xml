@@ -16,7 +16,7 @@
     <result column="del_flag" jdbcType="TINYINT" property="delFlag" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, value, label, type, description, sort, create_by, create_time, last_update_by, 
+    id, value, label, type, description, sort, create_by, create_time, last_update_by,
     last_update_time, remarks, del_flag
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -30,7 +30,7 @@
       <include refid="Base_Column_List"></include>
       from sys_dict
     </select>
-  <select id="findPageByLabel" parameterType="java.lang.String" resultMap="BaseResultMap">%
+  <select id="findPageByLabel" parameterType="java.lang.String" resultMap="BaseResultMap">
     <bind name="pattern" value="'%' + _parameter.label + '%'"/>
     select
     <include refid="Base_Column_List"></include>

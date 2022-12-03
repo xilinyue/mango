@@ -1,15 +1,15 @@
 package com.jun.my_mango.admin.controller;
 
+import com.jun.my_mango.admin.model.SysMenu;
 import com.jun.my_mango.admin.service.SysMenuService;
 import com.jun.my_mango.core.http.HttpResult;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Description: 菜单控制器
@@ -22,6 +22,20 @@ import org.springframework.web.bind.annotation.RestController;
 public class SysMenuController {
     @Autowired
     private SysMenuService sysMenuService;
+
+    @PreAuthorize("hasAuthority('sys:menu:add') AND hasAuthority('sys:menu:edit')")
+    @PostMapping(value="/save")
+    @ApiOperation(value = "新增导航菜单")
+    public HttpResult save(@RequestBody SysMenu record) {
+        return HttpResult.ok(sysMenuService.save(record));
+    }
+
+    @PreAuthorize("hasAuthority('sys:menu:delete')")
+    @PostMapping(value="/delete")
+    @ApiOperation(value = "删除导航菜单")
+    public HttpResult delete(@RequestBody List<SysMenu> records) {
+        return HttpResult.ok(sysMenuService.delete(records));
+    }
 
     @PreAuthorize("hasAuthority('sys:menu:view')")
     @GetMapping(value="/findNavTree")
